@@ -1,0 +1,13 @@
+; Конфигурация сервера
+def maxworkers := 4
+def timeout := 30
+def ports := << 80, 443, 8080 >>
+def defaultports := << 80, 443 >>
+
+; Конфигурация сети
+def mtu := 1500
+def dnsports := << 53, 5353 >>
+def subnetmask := 24
+def dhcprange := << 100, 200 >>
+
+{ server = { workers = ?[maxworkers], timeout = ?[timeout] }, ports = { listen = ?[ports], default = ?[defaultports] }, ip = { mtu = ?[mtu], mask = ?[subnetmask], port = ?[dnsports], range = ?[dhcprange], lease = 3600 } }
